@@ -55,7 +55,6 @@ def parse_args() -> None:
     roop.globals.target_path = args.target_path
     roop.globals.output_path = normalize_output_path(roop.globals.source_path, roop.globals.target_path, args.output_path)
     roop.globals.headless = roop.globals.source_path is not None and roop.globals.target_path is not None and roop.globals.output_path is not None
-    print(f"roop.globals.head HERHEHERHEH {roop.globals.headless}")
     roop.globals.frame_processors = args.frame_processor
     roop.globals.keep_fps = args.keep_fps
     roop.globals.keep_frames = args.keep_frames
@@ -157,7 +156,7 @@ def start() -> None:
     # extract frames
     if roop.globals.keep_fps:
         fps = detect_fps(roop.globals.target_path)
-        update_status(f'Extracting frames with {fps} FPS...')
+        update_status(f'Extracting frames with SRC {fps} FPS...')
         extract_frames(roop.globals.target_path, fps)
     else:
         update_status('Extracting frames with 30 FPS...')
