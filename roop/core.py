@@ -82,7 +82,9 @@ def decode_execution_providers(execution_providers: List[str]) -> List[str]:
 
 
 def suggest_execution_providers() -> List[str]:
-    return encode_execution_providers(onnxruntime.get_available_providers())
+    p = onnxruntime.get_available_providers()
+    print(f"onnxruntime.get_available_providers {p}")
+    return encode_execution_providers(p)
 
 
 def suggest_execution_threads() -> int:
